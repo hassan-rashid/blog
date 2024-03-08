@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Zip artifact for deployment
-        run: zip release.zip hassanandmanya.wordpress.2024-02-07.000.xml
+        run: zip release.zip ./* -r
         
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -47,9 +47,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0910D5BE7ABD4E868154A1B863F42A59 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_22D65881F4A248DFBEA30CDA64819A04 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_E62287FAD3424FBFA633D32BC330DF4E }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_AFD51A23179A4D9BA0DF657244FCA388 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_EAFC4A35DB6847F7947E24B2268006F9 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_21BFB568C0F447DFB47E415A0DE0C764 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
