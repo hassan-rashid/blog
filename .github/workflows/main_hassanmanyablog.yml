@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Zip artifact for deployment
-        run: zip release.zip  hassanandmanya.wordpress.2024-02-07.000.xml
+        run: hassanandmanya.wordpress.2024-02-07.000.xml
         
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
