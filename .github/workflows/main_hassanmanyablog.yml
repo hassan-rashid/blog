@@ -15,7 +15,7 @@ jobs:
       - name: Zip artifact for deployment
         run: |
           # Create a zip file containing the 'hassan.xml' file
-          zip -r release.zip hassan.xml
+          zip -r release.zip hassan
           # Print the contents of the zip file for verification
           unzip -l release.zip
           
