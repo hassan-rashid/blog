@@ -16,8 +16,12 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip . -i hassan.xml
-        
+        run: |
+          # Create a zip file containing the 'hassan.xml' file
+          zip -r release.zip hassan.xml
+          # Print the contents of the zip file for verification
+          unzip -l release.zip
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
@@ -31,7 +35,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
+      id-token: write # This is required for requesting the JWT
 
     steps:
       - name: Download artifact from build job
@@ -58,4 +62,3 @@ jobs:
           app-name: 'hassanmanyablog'
           slot-name: 'Production'
           package: .
-          
